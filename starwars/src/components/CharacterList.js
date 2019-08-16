@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import CharacterCard from "./CharacterCard"
+import GetCharacters from "./GetCharacters"
 import styled from "styled-components"
 
 const ListContainer = styled.div`
@@ -11,23 +12,25 @@ const ListContainer = styled.div`
 `;
 
 function CharacterList() {
-    const [people, setPeople] = useState([])
+    const [people, setPeople] = useState([]);
+    const [pageNum, setPageNum] = useState(1);
 
     useEffect(()=>{
         axios
-            .get(`https://swapi.co/api/people/`)
+            .get(`https://swapi.co/api/people/?page=${pageNum}`)
             .then(res=>{
+                const results = res.data.results
                 console.log(res);
-                setPeople(res.data.results);
+                setPeople(results);
             })
-    },[])
+    },[pageNum])
 
     return (
         <ListContainer>
             {people.map(item=>{
                 return (
                     <CharacterCard 
-                        key={item.id}
+                        id={item.id}
                         name={item.name}
                         gender={item.gender}
                         height={item.height}
@@ -36,9 +39,14 @@ function CharacterList() {
                     />
                 )
             })}
+            <GetCharacters 
+                pageNum={pageNum}
+                setPageNum={setPageNum}
+            />
         </ListContainer>
     )
 }
 
 
 export default CharacterList;
+

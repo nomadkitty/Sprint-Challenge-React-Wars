@@ -26,7 +26,7 @@ const CartP = styled.p`
 
 const CharacterCard = props =>{
     return (
-        <Card key={props.key}>
+        <Card id={props.id}>
             <CardTitle>{props.name}</CardTitle>
             <CartP>Gender: {props.gender}</CartP>
             <CartP>Height: {props.height}</CartP>
