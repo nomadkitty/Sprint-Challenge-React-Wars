@@ -5,10 +5,11 @@ import GetCharacters from "./GetCharacters"
 import styled from "styled-components"
 
 const ListContainer = styled.div`
-    width: 80%;
-    margin: 0 auto;
+    width: 100%;
+    position: relative;
     display: flex;
     flex-flow: row wrap;
+    margin-left: 5rem;
 `;
 
 function CharacterList() {
@@ -26,24 +27,26 @@ function CharacterList() {
     },[pageNum])
 
     return (
-        <ListContainer>
-            {people.map(item=>{
-                return (
-                    <CharacterCard 
-                        id={item.id}
-                        name={item.name}
-                        gender={item.gender}
-                        height={item.height}
-                        mass={item.mass}
-                        skinColor={item.skin_color}
-                    />
-                )
-            })}
-            <GetCharacters 
-                pageNum={pageNum}
-                setPageNum={setPageNum}
-            />
-        </ListContainer>
+        <div>
+            <GetCharacters
+                    pageNum={pageNum}
+                    setPageNum={setPageNum}
+                />
+            <ListContainer>
+                {people.map(item=>{
+                    return (
+                        <CharacterCard 
+                            id={item.id}
+                            name={item.name}
+                            gender={item.gender}
+                            height={item.height}
+                            mass={item.mass}
+                            skinColor={item.skin_color}
+                        />
+                    )
+                })}
+            </ListContainer>
+        </div>
     )
 }
 

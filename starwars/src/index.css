@@ -5,3 +5,8 @@ body {
   background-image: url('./sw-bg.jpg');
   background-size: cover;
 }
+
+@font-face {
+  font-family: 'MyFont';
+  src: local('MyFont'), url('./Starjhol.ttf') format('ttf');
+}
