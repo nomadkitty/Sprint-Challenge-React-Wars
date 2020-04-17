@@ -26,13 +26,30 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] What is React JS and what problems does it try and solve? Support your answer with concepts introduced in class and from your personal research on the web.
 
+React is a JS library that provide developers with the ability to build large scale applications effectively, esp rich user interfaces.  If a page has a lot of states changing and events happening, React renders faster because of its virtual DOM which interacts with the real DOM and only fires the changed state components.  Plus, React is very scalable as it’s all component based. 
+
 - [ ] What does it mean to _think_ in react?
+
+Think in react can be broken down into following steps: 
+Start With A Mock
+ - Break The UI Into A Component Hierarchy
+ - Build A Static Version in React
+ - Identify The Minimal (but complete) Representation Of UI State
+ - Identify Where Your State Should Live
+ - Add Inverse Data Flow
 
 - [ ] Describe state.
 
+State is JavaScript object that holds information that influences the output of render. State is managed within the component (similar to variables declared within a function)
+
 - [ ] Describe props.
 
+Props (short for “properties”) is also a JavaScript object that holds information that influences the output of render. However, props get passed to the component (similar to function parameters)
+
 - [ ] What are side effects, and how do you sync effects in a React component to state or prop changes?
+
+A side effect is anything that affects something outside the scope of the function being executed. Fetching data from an API, timers, logging, and manually manipulating the DOM are all examples of side effects.  
+We use useEffect() hood to sync effects in a React component to state or prop changes
 
 ## Project Set Up
 
