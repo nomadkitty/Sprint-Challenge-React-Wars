@@ -18,7 +18,7 @@ function CharacterList() {
 
     useEffect(()=>{
         axios
-            .get(`https://swapi.co/api/people/?page=${pageNum}`)
+            .get(`https://swapi.py4e.com/api/people/?page=${pageNum}`)
             .then(res=>{
                 const results = res.data.results
                 console.log(res);
